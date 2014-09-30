@@ -1,8 +1,12 @@
 {
     "name": "flickr-image-search",
-    "description": "Find and view images using the Flickr API",
+    "version": "1.0.0",
     "author": "Alex Kalicki <alexander.kalicki@gmail.com>",
+    "description": "Find and view images using the Flickr API",
     "dependencies": {
         "flickrapi": "0.3.*"
+    },
+    "devDependencies": {
+        "jshint": "2.5.*"
     }
 }

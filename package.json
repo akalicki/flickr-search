@@ -1,0 +1,8 @@
+{
+    "name": "flickr-image-search",
+    "description": "Find and view images using the Flickr API",
+    "author": "Alex Kalicki <alexander.kalicki@gmail.com>",
+    "dependencies": {
+        "flickrapi": "0.3.*"
+    }
+}

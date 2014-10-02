@@ -1,0 +1,94 @@
+<html>
+<head>
+    <title>Flickr Image Search</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="node_modules/flickrapi/browser/flickrapi.js"></script>
+    <script src="assets/js/main.js"></script>
+</head>
+<body>
+
+<!-- navbar -->
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarCollapsed">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Flickr Image Search</a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarCollapsed">
+            <form class="navbar-form navbar-right" role="search">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="basicText" placeholder="Search">
+                </div>
+                <button type="button" class="btn btn-default" id="basicSearchBtn">Submit</button>
+            </form>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a data-toggle="modal" data-target="#searchModal">Advanced search</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- advanced search modal -->
+<div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title" id="modalLabel">Advanced earch</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label for="advText" class="col-sm-3 control-label">Text</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="advText" placeholder="Search Text">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="advUser" class="col-sm-3 control-label">Username</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="advUser" placeholder="Name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="advUploadSince" class="col-sm-3 control-label">Uploaded Since</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control datepicker" id="advUploadSince" placeholder="MM/DD/YYYY">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="advUploadUntil" class="col-sm-3 control-label">Uploaded Until</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control datepicker" id="advUploadUntil" placeholder="MM/DD/YYYY">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="advTags" class="col-sm-3 control-label">Tags</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" id="advTags" placeholder="Tag List (comma delimited)">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="advSearchBtn">Search</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

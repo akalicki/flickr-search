@@ -1,0 +1,8 @@
+#advSearchLink:hover {
+    cursor: pointer;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #fff;
+    cursor: default;
+}

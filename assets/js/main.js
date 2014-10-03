@@ -23,9 +23,6 @@ function buttonInit(flickr) {
 
 /* SEARCH METHODS */
 
-var curOptions = {};
-var curPages = 0;
-
 function basicSearch(flickr) {
     var options = {
         text: $('#basicText').val(),
@@ -46,6 +43,7 @@ function advancedSearch(flickr) {
         page: 1
     };
 
+    $('#basicText').val('');
     addUserAndSearch(flickr, options);
 }
 
@@ -74,22 +72,22 @@ function imageSearch(flickr, options) {
             closeModal();
             curOptions = options;
             curPages = result.photos.pages;
-            showPhotos(result.photos.photo);
+            showPhotos(flickr, result.photos, options);
         }
     });
 }
 
 /* DISPLAY METHODS */
 
-function showPhotos(photos) {
+function showPhotos(flickr, photos, options) {
     var photo_url,
         photo_src,
         p,
         thumb_clone;
 
     $('#imgGallery').children().remove();
-    for (i = 0; i < photos.length; i++) {
-        p = photos[i];
+    for (i = 0; i < photos.photo.length; i++) {
+        p = photos.photo[i];
         photo_src = 'https://farm' + p.farm + '.staticflickr.com/' + p.server + '/' + p.id + '_' + p.secret + '_n.jpg';
         photo_url = 'https://www.flickr.com/photos/' + p.owner + '/' + p.id;
 
@@ -97,6 +95,24 @@ function showPhotos(photos) {
         thumb_clone.children('a').first().attr('href', photo_url);
         thumb_clone.find('img').first().attr({ src: photo_src, alt: p.title });
         thumb_clone.appendTo('#imgGallery');
+    }
+
+    if (options.page > 1) {
+        $('#pagination .previous').removeClass('hide').off('click').on('click', function() {
+            options.page--;
+            imageSearch(flickr, options);
+        });
+    } else {
+        $('#pagination .previous').addClass('hide');
+    }
+
+    if (options.page < photos.pages) {
+        $('#pagination .next').removeClass('hide').off('click').on('click', function() {
+            options.page++;
+            imageSearch(flickr, options);
+        });
+    } else {
+        $('#pagination .next').addClass('hide');
     }
 }
 

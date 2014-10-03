@@ -77,8 +77,6 @@ function imageSearch(flickr, options) {
             handleError(err);
         } else {
             closeModal();
-            curOptions = options;
-            curPages = result.photos.pages;
             showPhotos(flickr, result.photos, options);
         }
     });
@@ -102,7 +100,7 @@ function showPhotos(flickr, photos, options) {
 
         thumb_clone = $('#imgDummy').children('.img-thumbnail').first().clone();
         thumb_clone.find('img').first().attr({ src: photo_src, alt: p.title });
-        thumb_clone.find('.img-title').first().attr('href', photo_url).text(p.title.length < 20 ? (p.title.length > 0 ? p.title : 'Untitled') : p.title.substring(0, 20) + '...');
+        thumb_clone.find('.img-title').first().attr('href', photo_url).text(p.title.length < 40 ? (p.title.length > 0 ? p.title : 'Untitled') : p.title.substring(0, 40) + '...');
         thumb_clone.find('.img-user').first().attr('href', user_url);
         thumb_clone.appendTo('#imgGallery');
     }

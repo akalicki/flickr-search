@@ -20,7 +20,13 @@ cd flickr-search
 npm install --production
 ```
 
-Then you're all set! Loading `index.html` in your favorite browser to get
+Then you're all set! Open `index.html` in your favorite browser to get
 started.
 
 [NPM]: https://www.npmjs.org/
+
+## License
+
+This project is released under the [MIT License][].
+
+[MIT License]: https://github.com/akalicki/flickr-search/blob/master/LICENSE

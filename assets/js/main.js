@@ -12,6 +12,13 @@ function flickrInit() {
 }
 
 function buttonInit(flickr) {
+    $('#basicText').keydown(function(e) {
+        if (e.which == 13) {
+            e.preventDefault();
+            basicSearch(flickr);
+        }
+    });
+
     $('#basicSearchBtn').click(function() {
         basicSearch(flickr);
     });
@@ -80,7 +87,8 @@ function imageSearch(flickr, options) {
 /* DISPLAY METHODS */
 
 function showPhotos(flickr, photos, options) {
-    var photo_url,
+    var user_url,
+        photo_url,
         photo_src,
         p,
         thumb_clone;
@@ -88,12 +96,14 @@ function showPhotos(flickr, photos, options) {
     $('#imgGallery').children().remove();
     for (i = 0; i < photos.photo.length; i++) {
         p = photos.photo[i];
-        photo_src = 'https://farm' + p.farm + '.staticflickr.com/' + p.server + '/' + p.id + '_' + p.secret + '_n.jpg';
+        user_url = 'https://www.flickr.com/people/' + p.owner + '/';
         photo_url = 'https://www.flickr.com/photos/' + p.owner + '/' + p.id;
+        photo_src = 'https://farm' + p.farm + '.staticflickr.com/' + p.server + '/' + p.id + '_' + p.secret + '_n.jpg';
 
         thumb_clone = $('#imgDummy').children('.img-thumbnail').first().clone();
-        thumb_clone.children('a').first().attr('href', photo_url);
         thumb_clone.find('img').first().attr({ src: photo_src, alt: p.title });
+        thumb_clone.find('.img-title').first().attr('href', photo_url).text(p.title.length < 20 ? (p.title.length > 0 ? p.title : 'Untitled') : p.title.substring(0, 20) + '...');
+        thumb_clone.find('.img-user').first().attr('href', user_url);
         thumb_clone.appendTo('#imgGallery');
     }
 

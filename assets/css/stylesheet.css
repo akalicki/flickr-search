@@ -18,5 +18,34 @@
 }
 
 .img-thumbnail {
+    position: relative;
     margin: 0px 5px 10px 5px;
+}
+
+.img-info {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.65);
+    opacity: 0;
+    -webkit-transition: opacity 0.5s;
+    transition: opacity 0.5s;
+}
+
+.img-info:hover {
+    opacity: 1;
+}
+
+.img-info a {
+    color: white;
+    text-decoration: none;
+    opacity: 1;
+    -webkit-transition: opacity 0.2s;
+    transition: opacity 0.2s;
+}
+
+.img-info a:hover {
+    opacity: 0.5;
 }

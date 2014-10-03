@@ -23,7 +23,7 @@ npm install --production
 2. Visit the [developer site][] and request a Flickr API key.
 3. Replace `YOUR_APP_KEY` on [line 10 of main.js][main.js] with the key you
 receive.
-4. Then you're all set! Open `index.html` in your favorite browser to get
+4. You're all set! Open `index.html` in your favorite browser to get
 started.
 
 [NPM]: https://www.npmjs.org/

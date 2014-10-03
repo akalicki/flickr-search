@@ -12,7 +12,7 @@ Find your favorite photos using the JavaScript [Flickr][] API.
 
 ## Installation
 
-Clone the repository and install the Flickr API using [NPM][]:
+1. Clone the repository and install the Flickr API using [NPM][]:
 
 ```
 git clone git@github.com:akalicki/flickr-search.git
@@ -20,10 +20,15 @@ cd flickr-search
 npm install --production
 ```
 
-Then you're all set! Open `index.html` in your favorite browser to get
+2. Visit the [developer site][] and request a Flickr API key.
+3. Replace `YOUR_APP_KEY` on [line 10 of main.js][main.js] with the key you
+receive.
+4. Then you're all set! Open `index.html` in your favorite browser to get
 started.
 
 [NPM]: https://www.npmjs.org/
+[developer site]: https://www.flickr.com/services/apps/create/
+[main.js]: https://github.com/akalicki/flickr-search/blob/master/assets/js/main.js#L10
 
 ## License
 

@@ -7,7 +7,7 @@ $(document).ready(function() {
 
 function flickrInit() {
     return new Flickr({
-        api_key: '0d35b59ee64d532fafced34b2d495513'
+        api_key: 'YOUR_APP_KEY'
     });
 }
 

@@ -6,3 +6,12 @@
     color: #fff;
     cursor: default;
 }
+
+#imgGallery {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.img-thumbnail {
+    margin: 10px 5px 0 5px;
+}
